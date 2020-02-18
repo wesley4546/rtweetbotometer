@@ -12,7 +12,6 @@ install.packages("devtools")
 library(devtools)
 install_github("marsha5813/botcheck")
 library(botcheck)
-
 library(httr)
 library(xml2) 
 library(RJSONIO)
