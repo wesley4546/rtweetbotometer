@@ -1,7 +1,16 @@
-`install.package("rtweet")`
+#install.package("rtweet")
 library(rtweet)
 
-hastags <- c("#antiwhite,#whitegenocide,#WhiteLivesMatter,#WhiteSupremacy,
-#WhiteSupremacist,#whitepower,#WhitePride,#WhiteNatalism,#WhitePro,
-#mywhiteprivilege,#populationreplacement,#chrislam,#clownworld,#honkhonk")
+
+# ,#WhiteLivesMatter,#WhiteSupremacy,
+# #WhiteSupremacist,#whitepower,#WhitePride,#WhiteNatalism,#WhitePro,
+# #mywhiteprivilege,#populationreplacement,#chrislam,#clownworld,#honkhonk")
+
+
+hastags <- c("starbucks,coffee,trump")
+streamtime <- 30
+filename <- "rtweet.json"
+
+## Stream 
+rt <- stream_tweets(q = hastags, timeout = streamtime, file_name = filename)
 
