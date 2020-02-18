@@ -2,8 +2,8 @@
 library(rtweet)
 library(dplyr)
 
-hashtags <- c("#trump")
-streamtime <- 30
+hashtags <- c("#antiwhite,#WhiteSupremacy,#WhitePride,#mywhiteprivilege,#clownworld")
+streamtime <- 86400
 filename <- "rtweet.json"
 
 
