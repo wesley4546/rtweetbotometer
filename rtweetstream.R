@@ -1,6 +1,6 @@
 install.packages("rtweet")
 library(rtweet)
-
+library(dplyr)
 
 hashtags <-  ("#WhiteLivesMatter,#WhiteSupremacy,
 #WhiteSupremacist,#whitepower,#WhitePride,#WhiteNatalism,#WhitePro,
@@ -19,7 +19,14 @@ hastags <- c("#WhiteLivesMatter,#WhiteSupremacy,#WhiteSupremacist,#whitepower, #
 streamtime <- 172800
 filename <- "rtweet.json"
 
-## Stream 
-rt <- stream_tweets(q = hastags, timeout = streamtime, file_name = filename)
 
+## Stream initalizing
+rt <- stream_tweets(q = hastags, timeout = streamtime, file_name = filename, language="en")
+
+# Creates dataframe
+rt <- parse_stream("rtweet.json")
+
+clean_rt <- rt %>% 
+  filter(is_retweet == FALSE, hashtags != is.na(NA)) %>% 
+  select(user_id,screen_name,hashtags,text)
 
