@@ -8,7 +8,7 @@ filename <- "rtweet.json"
 
 
 ## Stream initalizing
-rt <- stream_tweets(q = hastags, timeout = streamtime, file_name = filename, language="en")
+rt <- stream_tweets(q = hashtags, timeout = streamtime, file_name = filename, language="en")
 
 # Creates dataframe
 rt <- parse_stream("rtweet.json")
