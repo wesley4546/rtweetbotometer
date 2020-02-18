@@ -2,7 +2,7 @@
 library(rtweet)
 library(dplyr)
 
-hashtags <- ("#trump")
+hashtags <- c("#trump")
 streamtime <- 30
 filename <- "rtweet.json"
 
