@@ -26,7 +26,7 @@ rt <- stream_tweets(q = hastags, timeout = streamtime, file_name = filename, lan
 # Creates dataframe
 rt <- parse_stream("rtweet.json")
 
-clean_rt <- rt %>% 
-  filter(is_retweet == FALSE, hashtags != is.na(NA)) %>% 
+clean_rt <- rt %>%
+  filter(is_retweet == FALSE, !is.na(hashtags), is_quote == FALSE) %>% 
   select(user_id,screen_name,hashtags,text)
 
