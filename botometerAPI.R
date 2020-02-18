@@ -17,15 +17,17 @@ library(xml2)
 library(RJSONIO)
 
 
-
+#Twitter/Botometer API Keys
 Mashape_key = "4f89b8c183msh93244cda1b308d5p195ac2jsncd35a34f81e6"
 consumer_key = "CcToLh23y2QmZYdueHVpFH0mH"
 consumer_secret = "cTLG3mIlD9rVZLQAdG0SwfNQ5Lhl3Iv4dIume7BODRX7rH4ckW"
 access_token = "401771632-KQv6Dc3WpJ76v9gra06x97xQub4PZaEvB5YQW5vT"
 access_secret = "2FXa1t4m24nCrta5MdkJHjZ7QMqT1PgUeK5CGq60eMWgm"
 
+#Connecting to botometer API
 myapp = oauth_app("twitter", key=consumer_key, secret=consumer_secret)
 sig = sign_oauth1.0(myapp, token=access_token, token_secret=access_secret)
+
 
 botcheck = function(user) {
   
