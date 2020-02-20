@@ -8,9 +8,9 @@
 #' @examples
 #' botcheck("barackobama")
 
-install.packages("devtools")
+#install.packages("devtools")
 library(devtools)
-install_github("marsha5813/botcheck")
+#install_github("marsha5813/botcheck")
 library(botcheck)
 library(httr)
 library(xml2) 
@@ -66,11 +66,10 @@ botcheck = function(user) {
   result = content(result, as = "parsed")
   
   # Return "English" score
-  return(result$scores$english)
+  return(result$display_scores$english)
 }
 
 
-
-botcheck("WriterJCYoung")
-
-getwd()
+usernames <- names
+names1to5 <- lapply(names[1:5],botcheck)
+data.frame(usernames= usernames[1:5],scores= unlist(names1to5))
