@@ -15,6 +15,9 @@ library(botcheck)
 library(httr)
 library(xml2) 
 library(RJSONIO)
+library(rtweet)
+library(dplyr)
+library(ggplot2)
 
 
 #Twitter/Botometer API Keys
@@ -69,7 +72,35 @@ botcheck = function(user) {
   return(result$display_scores$english)
 }
 
+setwd("~/Documents/GitHub/rtweetbotometer")
+tweets <- parse_stream("Data/rtweet.json")
+
+clean_rt <- tweets %>%
+  filter(is_retweet == FALSE, !is.na(hashtags), is_quote == FALSE) %>% 
+  select(user_id,screen_name,hashtags,text)
+
+names <- unique(unlist(clean_rt$screen_name))
+
+
+
+botcheck("AndrewS78530059")
 
 usernames <- names
-names1to5 <- lapply(names[1:5],botcheck)
-data.frame(usernames= usernames[1:5],scores= unlist(names1to5))
+names1to5 <- lapply(names[1:88],botcheck) #took about ~7 minutes
+
+
+  
+scored <- data.frame(usernames= usernames[c(-9,-80:-88)],scores= unlist(names1to5))
+scored_sorted <- scored %>% 
+  arrange(scores)
+
+densityplot <- ggplot(scored_sorted, aes(x=scores) +
+  geom_density()
+
+
+
+
+
+
+
+
