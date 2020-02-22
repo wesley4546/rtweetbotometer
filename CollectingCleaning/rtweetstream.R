@@ -2,13 +2,13 @@
 library(rtweet)
 library(dplyr)
 
-hashtags <- c("#antiwhite,#WhiteSupremacy,#WhitePride,#mywhiteprivilege,#clownworld")
-streamtime <- 86400
-filename <- "rtweet.json"
-
+# #Parameters
+# hashtags <- c("#antiwhite,#WhiteSupremacy,#WhitePride,#mywhiteprivilege,#clownworld")
+# streamtime <- 86400
+# filename <- "rtweet.json"
 
 ## Stream initalizing
-rt <- stream_tweets(q = hashtags, timeout = streamtime, file_name = filename, language="en")
+# rt <- stream_tweets(q = hashtags, timeout = streamtime, file_name = filename, language="en")
 
 2# Creates dataframe
 rt <- parse_stream("rtweet.json")

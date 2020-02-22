@@ -72,7 +72,7 @@ botcheck = function(user) {
   return(result$display_scores$english)
 }
 
-setwd("~/Documents/GitHub/rtweetbotometer")
+setwd("~//Documents//GitHub//rtweetbotometer")
 tweets <- parse_stream("Data/rtweet.json")
 
 clean_rt <- tweets %>%
@@ -86,19 +86,33 @@ names <- unique(unlist(clean_rt$screen_name))
 botcheck("AndrewS78530059")
 
 usernames <- names
-names1to5 <- lapply(names[1:88],botcheck) #took about ~7 minutes
+
+
+scored_names <- lapply(names[1:88],botcheck) #took about ~7 minutes
 
 
   
-scored <- data.frame(usernames= usernames[c(-9,-80:-88)],scores= unlist(names1to5))
+scored <- data.frame(usernames= usernames[c(-9)],
+                     scores= unlist(scored_names))
+
+
 scored_sorted <- scored %>% 
   arrange(scores)
 
-densityplot <- ggplot(scored_sorted, aes(x=scores) +
-  geom_density()
+
+densityplot <- ggplot(scored_sorted, aes(x=scores))  +
+  geom_histogram(aes(y=..density..), binwidth = .25, fill = "#F8923A", color = "black" ) +
+  geom_density(fill="#3AA0F8",alpha = .3, color = "black") +
+  ggtitle("Density plot of botometer scores")
+densityplot
 
 
+scored_sorted_coded <- read.csv("scored_sorted_coded.csv")
 
+
+cor(scored_sorted_coded$bot,scored_sorted_coded$botometer)
+
+data.frame(botometerbot = )
 
 
 
