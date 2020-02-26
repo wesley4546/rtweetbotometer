@@ -10,14 +10,14 @@ library(dplyr)
  filename <- "rtweetbeforedebate.json"
 
 # Stream initalizing
- rt <- stream_tweets(q = hashtags, timeout = streamtime, file_name = filename, language="en")
+rt <- stream_tweets(q = hashtags, timeout = streamtime, file_name = filename, language="en")
 
  
  
 ## Cleaning
  
 # Creates dataframe
-rt <- parse_stream("rtweet7day.json")
+rt <- parse_stream("rtweetbeforedebate.json")
 
 
 
