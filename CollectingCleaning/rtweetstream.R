@@ -14,10 +14,7 @@ library(dplyr)
 rt <- parse_stream("rtweet.json")
 
 
-rt2 <- rt
-rt3 <- rt
-rt4 <- rt
-rt5 <- rt
+
 
 clean_rt <- rt %>%
   filter(is_retweet == FALSE, !is.na(hashtags), is_quote == FALSE) %>% 
